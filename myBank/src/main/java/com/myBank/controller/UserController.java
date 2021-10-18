@@ -30,7 +30,7 @@ import com.myBank.service.UsersService;
 @Controller
 public class UserController {
 	
-	@Autowired
+	@Autowired 
 	UsersService usersService;
 	
 	@Autowired
