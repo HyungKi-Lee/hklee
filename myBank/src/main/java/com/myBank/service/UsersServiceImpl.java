@@ -2,6 +2,7 @@ package com.myBank.service;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,7 +13,8 @@ import com.myBank.dao.UsersDAO;
 import com.myBank.dto.Users;
 import com.myBank.exception.ExistUserEmailException;
 import com.myBank.exception.JoinFailException;
-import com.myBank.util.MyOkHttpClient;
+import com.myBank.util.KakaoLogin;
+import com.myBank.util.OpenBankOauth;
 
 @Service
 public class UsersServiceImpl implements UsersService {
@@ -52,9 +54,19 @@ public class UsersServiceImpl implements UsersService {
 		return usersDAO.checkLoginInfo(email);
 	}
 	
+	@Override
 	public void getAccessToken(String authorizationCode) {
 		try {
-			MyOkHttpClient.getAccessToken(authorizationCode);
+			KakaoLogin.getAccessToken(authorizationCode);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void getOauth(Properties prop) {
+		try {
+			OpenBankOauth.getOAuth(prop);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
