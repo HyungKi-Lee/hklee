@@ -80,13 +80,16 @@
 </div>
 <script type="text/javascript">
 $("#authBtn").click(function() {
+	location.href="${pageContext.request.contextPath}/Oauth";
+	/*
 	var tmpWindow = window.open('about:blank');
-	tempWindow.loacation = "https://testapi.openbanking.or.kr/oauth/2.0/authorize?" +
+	tmpWindow.location = "https://testapi.openbanking.or.kr/oauth/2.0/authorize?" +
     "response_type=code&"+
-    "client_id=a3e010c4-db5e-469b-aa64-c35a5a4726ea&"+ // 
-    "redirect_uri=http://localhost:8080/controller/main&"+
+    "client_id=a3e010c4-db5e-469b-aa64-c35a5a4726ea&"+
+    "redirect_uri=http://localhost:8080/controller/Oauth&"+
     "scope=login inquiry transfer&"+
-    "state=12345678901234567890123456789012&"+
+    "state=b80BLsfigm9OokPTjy03elbJqRHOfGSY&"+
     "auth_type=0"
+    */
 });
 </script>

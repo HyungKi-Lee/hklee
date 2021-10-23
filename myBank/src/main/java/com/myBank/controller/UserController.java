@@ -100,8 +100,8 @@ public class UserController {
 	// *** 카카오톡 로그인 *** //
 	@RequestMapping("/kakaoLogin")
 	public String kakaoLogin(@RequestParam String nickname ,HttpSession session, @RequestParam("code") String code) {
-		session.setAttribute("kakaoLoginSession", nickname);
 		usersService.getAccessToken(code);
+		session.setAttribute("kakaoLoginSession", nickname);
 		/*
 		System.out.println("code : "+ code);
 		

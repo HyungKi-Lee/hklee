@@ -68,34 +68,16 @@ function kakaoLogin() {
 					var nickname = response.properties['nickname'];
 					var code = response.properties['code'];
 					location.href="${pageContext.request.contextPath}/kakaoLogin?nickname="+nickname+"&code="+code;
-					//fuwnoCIhcFPkjU25eHRXWTPXj4Z9NvzQAfsVfkprvEJrsqqR6vgYb_K8fAO6A3iQ5YksbAo9dGgAAAF8gj_lRg
-					
-					/*
-					url = "https://kauth.kakao.com/oauth/token"
-
-					data = {
-					    "grant_type" : "authorization_code",
-					    "client_id" : "6417a8d5306dd02e7e0977db06db4689",
-					    "redirect_uri" : "http://localhost:8080/controller/",
-					    "code"         : "fuwnoCIhcFPkjU25eHRXWTPXj4Z9NvzQAfsVfkprvEJrsqqR6vgYb_K8fAO6A3iQ5YksbAo9dGgAAAF8gj_lRg"
-					    
-					}
-					var response = requests.post(url, data=data)
-
-					var tokens = response.json()
-					
-					alert(tokens);
-					*/
 				},
 				fail : function (error) {
 					alert("api 요청 실패");
-				},
-			})
+				}
+			});
 		},
 		fail : function(error) {
 			alert("로그인 실패");
-		},
-	})	
+		}
+	});	
 }
 
 function kakaoLogout() {

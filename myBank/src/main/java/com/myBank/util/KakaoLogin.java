@@ -8,12 +8,12 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
-public class MyOkHttpClient {
-	private static String BASE_URL = "https://kauth.kakao.com";
-	private static String APP_KEY =  "6417a8d5306dd02e7e0977db06db4689";
-	private static String REDIRECT_URI = "http://localhost:8080/controller/";
+public class KakaoLogin {
+	private static final String BASE_URL = "https://kauth.kakao.com";
+	private static final String APP_KEY =  "6417a8d5306dd02e7e0977db06db4689";
+	private static final String REDIRECT_URI = "http://localhost:8080/controller/";
 	
-	public MyOkHttpClient() {
+	public KakaoLogin() {
 		// TODO Auto-generated constructor stub
 	}
 	
