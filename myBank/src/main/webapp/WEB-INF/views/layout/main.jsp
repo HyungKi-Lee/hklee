@@ -80,7 +80,46 @@
 </div>
 <script type="text/javascript">
 $("#authBtn").click(function() {
-	location.href="${pageContext.request.contextPath}/Oauth";
+	//location.href="${pageContext.request.contextPath}/Oauth";
+	
+	$.ajax({
+		type : "get",
+		url : "${pageContext.request.contextPath}/Oauth",
+		dataType : "json",
+		success : function(result) {
+			alert("뭔가 성공은 함");
+			var url = result["url"];
+			location.href = url;
+			//var url = response["code"];
+			//alert(code);
+		},
+		error : function(xhr) {
+			alert("에러 발생");
+		}
+	});
+	
+	
+	/*
+	$.ajax({
+		type : "post",
+		url : "${pageContext.request.contextPath}/loginCheck",
+		data : params,
+		dataType : "json",
+		success : function(result) {
+			var isValid = result["isValid"];
+			
+			if(isValid) {
+				loginForm.submit();
+			} else {
+				$("#loginError").html("ID or Password is not mathed");
+			}
+		},
+		error : function() {
+			
+		}
+	});
+	*/
+	
 	/*
 	var tmpWindow = window.open('about:blank');
 	tmpWindow.location = "https://testapi.openbanking.or.kr/oauth/2.0/authorize?" +

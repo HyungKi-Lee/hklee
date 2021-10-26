@@ -14,7 +14,7 @@ import com.myBank.dto.Users;
 import com.myBank.exception.ExistUserEmailException;
 import com.myBank.exception.JoinFailException;
 import com.myBank.util.KakaoLogin;
-import com.myBank.util.OpenBankOauth;
+import com.myBank.util.OpenBank;
 
 @Service
 public class UsersServiceImpl implements UsersService {
@@ -54,8 +54,9 @@ public class UsersServiceImpl implements UsersService {
 		return usersDAO.checkLoginInfo(email);
 	}
 	
+	// *** 카카오 로그인 토근발급(미완) ***
 	@Override
-	public void getAccessToken(String authorizationCode) {
+	public void getAccessKakaoToken(String authorizationCode) {
 		try {
 			KakaoLogin.getAccessToken(authorizationCode);
 		} catch (IOException e) {
@@ -63,13 +64,20 @@ public class UsersServiceImpl implements UsersService {
 		}
 	}
 	
+	// *** 오픈뱅킹 api 인증 *** //
 	@Override
-	public void getOauth(Properties prop) {
+	public String getOauth(Properties prop) {
 		try {
-			OpenBankOauth.getOAuth(prop);
+			return OpenBank.getOAuth(prop);
 		} catch (IOException e) {
 			e.printStackTrace();
+			return null;
 		}
+	}
+
+	@Override
+	public void getAccessBankToken(String authorizationCode) {
+		
 	}
 
 }

@@ -67,6 +67,8 @@ function kakaoLogin() {
 				success : function(response) {
 					var nickname = response.properties['nickname'];
 					var code = response.properties['code'];
+					alert("nickname : "+nickname);
+					alert("code : "+code);
 					location.href="${pageContext.request.contextPath}/kakaoLogin?nickname="+nickname+"&code="+code;
 				},
 				fail : function (error) {
