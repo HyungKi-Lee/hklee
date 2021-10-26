@@ -10,6 +10,7 @@ public interface UsersService {
 	void joinUser(Users users) throws JoinFailException;
 	String selectEmail(String email);
 	Users checkLoginInfo(String email);
-	void getAccessToken(String authorizationCode);
-	void getOauth(Properties prop);
+	void getAccessKakaoToken(String authorizationCode);
+	String getOauth(Properties prop);
+	void getAccessBankToken(String code);
 }
